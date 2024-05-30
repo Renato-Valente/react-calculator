@@ -66,3 +66,29 @@ body {
     background-color: #ec7e23;
     color: rgba(255, 255, 255, 0.85);  
 }
+
+
+/* .teste {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    animation-name: slideLeft;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slideLeft {
+    
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.75);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+} */

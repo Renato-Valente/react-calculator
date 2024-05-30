@@ -1,4 +1,3 @@
-
 import backspace from '../assets/backspace.svg'
 
 interface DeleteBoxType {
@@ -7,15 +6,22 @@ interface DeleteBoxType {
 
 const DeleteBox = (props: DeleteBoxType) => {
 
+    const touchEnd = (e:React.TouchEvent<HTMLDivElement>) => {
+        e.currentTarget.style.transform = 'scale(1)';
+        e.currentTarget.style.transitionDuration = '0.2s';
+    }
+
     const {setScreen} = props;
-    const touchStart = () => {
+    const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        e.currentTarget.style.transform = 'scale(0.9)';
+        e.currentTarget.style.transitionDuration = '0.2s';
         setScreen((prev) => {
             return prev.slice(0, prev.length - 1);
         })
     }
 
     return (
-        <div onTouchStart={touchStart} className="box delete-box">
+        <div onTouchStart={touchStart} onTouchEnd={touchEnd} className="box delete-box">
             <img src={backspace} style={{width:'50%', fill:'#fff', opacity:0.85}}  alt="" />
         </div>
     )
