@@ -1,0 +1,24 @@
+
+.screen {
+    width: 100%;
+    background-color: #111;
+    padding: 1rem 2rem;
+    color: rgba(255, 255, 255, 0.7);
+
+}
+
+.last-value {
+    height: 30px;
+}
+
+.current-value {
+    font-size: 4rem;
+    height: 70px;
+}
+
+.last-value, .current-value {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+

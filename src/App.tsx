@@ -1,25 +1,27 @@
 import { useState } from 'react'
 import './App.css'
-import NumberBox from './components/NumberBox.tsx'
-import DeleteBox from './components/DeleteBox.tsx'
-import ClearBox from './components/ClearBox.tsx';
-import OperatorBox from './components/OperatorBox.tsx';
-import EqualsBox from './components/EqualsBox.tsx';
+import NumberBox from './components/buttons/NumberBox.tsx'
+import DeleteBox from './components/buttons/DeleteBox.tsx'
+import ClearBox from './components/buttons/ClearBox.tsx';
+import OperatorBox from './components/buttons/OperatorBox.tsx';
+import EqualsBox from './components/buttons/EqualsBox.tsx';
+
+import Screen from './components/Screen.tsx';
 
 
 function App() {
 
   const [screenValue, setScreenValue] = useState('0');
+  const [lastValue, setLastValue] = useState(' ');
 
   return (
     <>
       <div className="container">
-        <div className="top-container">
-          {screenValue}
-        </div>
+
+        <Screen lastValue={lastValue} currentValue={screenValue}/>
 
         <div className="bottom-container">
-            <ClearBox setScreen={setScreenValue}/>
+            <ClearBox setScreen={setScreenValue} setLastValue={setLastValue}/>
             <DeleteBox setScreen={setScreenValue}/>
             <OperatorBox value={'/'}/>
             <NumberBox value={'1'} setScreen={setScreenValue}/>
@@ -36,7 +38,7 @@ function App() {
             <OperatorBox value={'-'}/>
             <NumberBox value={'.'} setScreen={setScreenValue}/>
             <NumberBox value={'0'} setScreen={setScreenValue}/>
-            <EqualsBox setScreen={setScreenValue}/>
+            <EqualsBox setScreen={setScreenValue} setLastValue={setLastValue}/>
             
         </div>
       </div>

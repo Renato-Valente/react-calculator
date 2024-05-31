@@ -1,4 +1,4 @@
-import backspace from '../assets/backspace.svg'
+import backspace from '../../assets/backspace.svg'
 
 interface DeleteBoxType {
     setScreen: (value: React.SetStateAction<string>) => any;
