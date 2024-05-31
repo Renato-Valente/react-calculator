@@ -16,7 +16,9 @@ const DeleteBox = (props: DeleteBoxType) => {
         e.currentTarget.style.transform = 'scale(0.9)';
         e.currentTarget.style.transitionDuration = '0.2s';
         setScreen((prev) => {
-            return prev.slice(0, prev.length - 1);
+            const result = prev.slice(0, prev.length - 1);
+            
+            return result.length > 0 ? result : '0';
         })
     }
 

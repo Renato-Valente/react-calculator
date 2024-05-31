@@ -9,7 +9,7 @@ const ClearBox = (props: ClearBoxType) => {
     const {setScreen, setLastValue} = props;
     const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         setScreen('0');
-        setLastValue('0');
+        setLastValue('');
         e.currentTarget.style.transform = 'scale(0.9)';
         e.currentTarget.style.transitionDuration = '0.2s';
     }
