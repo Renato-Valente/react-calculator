@@ -1,15 +1,25 @@
 
 interface OperatorBoxType {
-    value: string
+    value: string,
+    screenValue: string,
+    setScreenValue: (e: React.SetStateAction<string>) => any;
+    setLastValue: (e: React.SetStateAction<string>) => any;
 }
 
 const OperatorBox = (props: OperatorBoxType) => {
 
-    const {value} = props;
+    const {value, screenValue, setScreenValue, setLastValue} = props;
     const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         console.log(e.touches[0].clientX);
         e.currentTarget.style.transform = 'scale(0.9)';
         e.currentTarget.style.transitionDuration = '0.2s';
+
+        setLastValue((prev => {
+            return(`${prev} ${screenValue} ${value}`)
+        }))
+
+        setScreenValue('0');
+        
     }
 
     const touchEnd = (e:React.TouchEvent<HTMLDivElement>) => {

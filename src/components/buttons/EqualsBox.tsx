@@ -2,17 +2,22 @@
 interface EqualsBoxType {
     setScreen: (value: React.SetStateAction<string>) => any;
     setLastValue: (value: React.SetStateAction<string>) => any;
+    lastValue: string;
 }
 
 const EqualsBox = (props: EqualsBoxType) => {
 
-    const {setLastValue} = props;
+    const {setLastValue, setScreen, lastValue} = props;
 
     const touchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         console.log(e.touches[0].clientX);
-        setLastValue((prev) => {
-            return(prev + '2');
+        
+        setScreen((prev) => {
+            const result = eval(`${lastValue} ${prev}`);
+            return(String(result));
         })
+        setLastValue('');
+
         e.currentTarget.style.transform = 'scale(0.9)';
         e.currentTarget.style.transitionDuration = '0.2s';
     }
