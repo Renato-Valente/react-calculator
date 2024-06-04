@@ -53,6 +53,13 @@ body {
     justify-content: center;
     align-items: center;
     user-select: none;
+    cursor: pointer;
+}
+
+@media (min-height: 600px) {
+    .box:hover {
+        background-color: rgba(236,126,35, 0.4);;
+    }
 }
 
 .operator-box {

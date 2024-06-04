@@ -20,7 +20,7 @@ const DeleteBox = (props: DeleteBoxType) => {
         setScreen((prev) => {
             const result = prev.slice(0, prev.length - 1);
             
-            return (result.length > 0 && !isNaN(Number(result))) ? result : '0';
+            return (result.length > 0 && !isNaN(Number(result))) ? result : prev;
         })
 
         isPressed.current = true;

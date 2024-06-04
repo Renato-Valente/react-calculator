@@ -20,9 +20,11 @@ const NumberBox = (props: numberBoxType) => {
 
 
         setScreen((prev) => {
-            const result = (prev == '0' && value != '.') ? value : prev + value;
+            let result = (prev == '0' && value != '.') ? value : prev + value;
             
-            return (value == '.' && prev.includes('.')) ? prev : result;
+            result = (value == '.' && prev.includes('.')) ? prev : result;
+            
+            return (result.length < 10) ? result : prev;
         });
 
         setTimeout(() => {
@@ -38,7 +40,8 @@ const NumberBox = (props: numberBoxType) => {
 
     return(
         <div onTouchStart={touchStart} onTouchEnd={touchEnd}
-             onMouseDown={touchStart} onMouseUp={touchEnd} onMouseLeave={touchEnd} className="box">
+             onMouseDown={touchStart} onMouseUp={touchEnd} onMouseLeave={touchEnd}
+             className="box number-box">
             {value}
         </div>
     )

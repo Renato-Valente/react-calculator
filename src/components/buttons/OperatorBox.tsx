@@ -18,10 +18,13 @@ const OperatorBox = (props: OperatorBoxType) => {
         if(isPressed.current) return;
         
         setLastValue((prev => {
-            return(`${prev} ${Number(screenValue)} ${value}`)
+            const result = (`${prev} ${Number(screenValue)} ${value}`)
+
+            if(result.length > 40) return prev;
+            setScreenValue('0');
+            return result;
         }))
         
-        setScreenValue('0');
         isPressed.current = true;
 
         setTimeout(() => {
