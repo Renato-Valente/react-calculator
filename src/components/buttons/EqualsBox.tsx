@@ -22,7 +22,7 @@ const EqualsBox = (props: EqualsBoxType) => {
             const result = eval(`${lastValue} ${prev}`);
             if(!isFinite(result) || isNaN(result)) return prev;
             setLastValue('');
-            return(String(result).length < 9 ? String(result) : String(Number(result).toPrecision(5)));
+            return(String(result).length < 12 ? String(result) : String(Number(result).toPrecision(5)));
         })
 
         isPressed.current = true;

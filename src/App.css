@@ -53,12 +53,12 @@ body {
     justify-content: center;
     align-items: center;
     user-select: none;
-    cursor: pointer;
 }
 
-@media (min-height: 600px) {
+@media (min-width: 900px) {
     .box:hover {
-        background-color: rgba(236,126,35, 0.4);;
+        background-color: rgba(236,126,35, 0.4);
+        cursor: pointer;
     }
 }
 
