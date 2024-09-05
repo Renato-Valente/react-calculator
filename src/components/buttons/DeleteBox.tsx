@@ -18,6 +18,7 @@ const DeleteBox = (props: DeleteBoxType) => {
         if(isPressed.current) return;
 
         setScreen((prev) => {
+            if(prev.length <= 1) return '0';
             const result = prev.slice(0, prev.length - 1);
             
             return (result.length > 0 && !isNaN(Number(result))) ? result : prev;
